@@ -1,13 +1,17 @@
 Simon:
+    type: postdoc
     papers: 0
     plots: 0
     available: False
 Sarah:
+    type: student
     papers: 1
     plots: 0
 Edoardo:
+    type: postdoc
     papers: 0
     plots: 0
 "Paul G":
+    type: postdoc
     papers: 0
     plots: 0
