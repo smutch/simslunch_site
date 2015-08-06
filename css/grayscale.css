@@ -7,10 +7,10 @@
 body {
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    /* background-color: #000; */
-    background-color: #010;
+    background-color: #1A1A1A;
+    -webkit-font-smoothing:antialiased;
 }
 
 html {
@@ -33,14 +33,14 @@ h6 {
 
 p {
     margin: 0 0 25px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
 @media(min-width:768px) {
     p {
         margin: 0 0 35px;
-        font-size: 20px;
+        font-size: 22px;
         line-height: 1.6;
     }
 }
@@ -263,7 +263,7 @@ ul.banner-social-buttons {
 }
 
 footer {
-    padding: 50px 0;
+    padding-top: 100px;
 }
 
 footer p {
