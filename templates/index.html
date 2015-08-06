@@ -19,7 +19,8 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
@@ -62,20 +63,16 @@
         <div class="history-section">
             <div class="container">
                 <h2>Past Presenters</h2>
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        {% include "papers_history.html" %}
-                        <br>
-                        {% include "plots_history.html" %}
-                    </div>
-                </div>
+                {% include "papers_history.html" %}
+                <br>
+                {% include "plots_history.html" %}
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container content-section text-center">
+        <div class="container text-center">
             <p><i class="fa fa-copyright"></i> Simon Mutch<br><small>The University of Melbourne (2015)</small></p>
         </div>
     </footer>
