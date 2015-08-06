@@ -17,9 +17,12 @@ members.index.name = 'name'
 
 # generate plots of the current standings and render them to html files
 for contribution in ["Papers", "Plots"]:
-    canvas, axes, mark = toyplot.bars(members[contribution.lower()], width=60+80*members.shape[0], height=300)
+    canvas, axes, mark = toyplot.bars(members[contribution.lower()], width=20+50*members.shape[0], height=300)
     axes.x.ticks.locator = toyplot.locator.Explicit(labels=members.index)
     axes.label.text = contribution
+    axes.x.ticks.labels.angle = 45
+    axes.x.ticks.show = True
+    axes.x.ticks.labels.style = {"baseline-shift":0, "text-anchor":"end", "-toyplot-anchor-shift":"-6px"}
     axes.y.label.text = "Times presented"
     axes.y.ticks.locator = toyplot.locator.Integer()
     toyplot.html.render(canvas, fobj="templates/"+contribution.lower()+"_history.html")

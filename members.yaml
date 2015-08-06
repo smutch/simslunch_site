@@ -2,16 +2,61 @@ Simon:
     type: postdoc
     papers: 0
     plots: 0
-    available: False
 Sarah:
     type: student
-    papers: 1
+    papers: 3
     plots: 0
 Edoardo:
     type: postdoc
-    papers: 0
+    papers: 2
     plots: 0
 "Paul G":
     type: postdoc
     papers: 0
+    plots: 1
+"Paul A":
+    type: student
+    papers: 1
     plots: 0
+Hank:
+    type: postdoc
+    papers: 0
+    plots: 0
+Greg:
+    type: postdoc
+    papers: 3
+    plots: 0
+    available: False
+Chiara:
+    type: postdoc
+    papers: 0
+    plots: 0
+Katie:
+    type: postdoc
+    papers: 0
+    plots: 0
+Laura:
+    type: postdoc
+    papers: 0
+    plots: 0
+    available: False
+Chuanwu:
+    type: student
+    papers: 1
+    plots: 0
+Yuxiang:
+    type: student
+    papers: 1
+    plots: 0
+Jaehong:
+    type: student
+    papers: 1
+    plots: 0
+Camila:
+    type: student
+    papers: 2
+    plots: 0
+Antonios:
+    type: student
+    papers: 0
+    plots: 1

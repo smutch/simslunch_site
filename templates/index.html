@@ -47,13 +47,13 @@
     <section id="current" class="container content-section text-center">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>Papers</h2>
+                <h1>Papers</h1>
                 <p>{{ student_presenters['paper'] }}<br>{{ postdoc_presenters['paper'] }}</p>
             </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-            <h2>Plots</h2>
-            <p>{{ student_presenters['plot'] }}<br>{{ postdoc_presenters['plot'] }}</p>
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Plots</h1>
+                <p>{{ student_presenters['plot'] }}<br>{{ postdoc_presenters['plot'] }}</p>
+            </div>
         </div>
     </section>
 
@@ -63,10 +63,9 @@
             <div class="container">
                 <h2>Past Presenters</h2>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-8 col-md-offset-2">
                         {% include "papers_history.html" %}
-                    </div>
-                    <div class="col-sm-6">
+                        <br>
                         {% include "plots_history.html" %}
                     </div>
                 </div>
@@ -77,7 +76,7 @@
     <!-- Footer -->
     <footer>
         <div class="container content-section text-center">
-            <p>Copyright Simon Mutch; The University of Melbourne (2015)</p>
+            <p><i class="fa fa-copyright"></i> Simon Mutch<br><small>The University of Melbourne (2015)</small></p>
         </div>
     </footer>
 
