@@ -48,12 +48,12 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>Papers</h2>
-                <p>{Presenter 1}<br>{Presenter 2}</p>
+                <p>{{ paper_presenters[0] }}<br>{{ paper_presenters[1] }}</p>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <h2>Plots</h2>
-            <p>{Presenter 1}<br>{Presenter 2}</p>
+            <p>{{ plot_presenters[0] }}<br>{{ plot_presenters[1] }}</p>
         </div>
     </section>
 
@@ -64,12 +64,10 @@
                 <h2>Past Presenters</h2>
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3>Papers</h3>
-                        <p>Plot here</p>
+                        {% include "papers_history.html" %}
                     </div>
                     <div class="col-sm-6">
-                        <h3>Plots</h3>
-                        <p>Plot here</p>
+                        {% include "plots_history.html" %}
                     </div>
                 </div>
             </div>
@@ -79,7 +77,7 @@
     <!-- Footer -->
     <footer>
         <div class="container content-section text-center">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright Simon Mutch; The University of Melbourne (2015)</p>
         </div>
     </footer>
 
