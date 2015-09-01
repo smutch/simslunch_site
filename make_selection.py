@@ -7,6 +7,20 @@ import pandas as pd
 with open('members.yaml', 'r') as fd:
     members = yaml.load(fd)
 
+# read in last week's presenters and increment
+try:
+    with open("selected_presenters.yaml", "r") as fd:
+        last_presenters = yaml.load(fd)
+    for member_type in iter(last_presenters.values()):
+        for presentation, name in iter(member_type.items()):
+            members[name][presentation+'s'] += 1
+except FileNotFoundError:
+    pass
+
+# write out the updated members list
+with open('members.yaml', 'w') as fd:
+    yaml.safe_dump(members, fd)
+
 # convert to a pandas dataframe
 members = pd.DataFrame.from_dict(members).T
 members.available.fillna(True, inplace=True)
@@ -51,7 +65,7 @@ for group in (students, postdocs):
                           " the %s!" % group.name)
             break
 
-# write the presented to a file
+# write the presenters to a file
 presenters = dict(postdocs = postdocs.presenters,
                   students = students.presenters)
 with open("selected_presenters.yaml", "w") as fd:
