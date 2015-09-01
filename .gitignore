@@ -1,2 +1,6 @@
 templates/papers_history.html
 templates/plots_history.html
+.DS_Store
+*.pyc
+selected_presenters.yaml
+build/index.html
