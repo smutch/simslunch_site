@@ -1,0 +1,4 @@
+- Add corresponding sims lunch date to page
+- Filter out past dates from doodle scrape
+- Use a different page template that works on mobile devices
+- Add future volunteer counts as stacked bars in plots
