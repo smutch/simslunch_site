@@ -2,24 +2,12 @@ import warnings
 import random
 import yaml
 import pandas as pd
+from scrape_doodle import scrape_doodle
+import numpy as np
 
 # read in the list of members and their presenting histories
 with open('members.yaml', 'r') as fd:
     members = yaml.load(fd)
-
-# read in last week's presenters and increment
-try:
-    with open("selected_presenters.yaml", "r") as fd:
-        last_presenters = yaml.load(fd)
-    for member_type in iter(last_presenters.values()):
-        for presentation, name in iter(member_type.items()):
-            members[name][presentation+'s'] += 1
-except FileNotFoundError:
-    pass
-
-# write out the updated members list
-with open('members.yaml', 'w') as fd:
-    yaml.safe_dump(members, fd)
 
 # convert to a pandas dataframe
 members = pd.DataFrame.from_dict(members).T
@@ -33,44 +21,68 @@ try:
 except AttributeError:
     pass
 
+# Temporarily increment the contribution counts to include future volunteers
+volunteers, doodle_poll = scrape_doodle()
+for name in doodle_poll.columns:
+    for contribution in ('papers', 'plots'):
+        members.loc[name][contribution] += np.count_nonzero(doodle_poll[name].loc[:, contribution[:-1]])
+
+# Set up the dicts for storing the selection information
 postdocs = members.query('type == "postdoc"')
 postdocs.name = "postdocs"
 postdocs.presenters = dict(
     paper = "",
     plot = ""
 )
+postdocs.volunteered = dict(
+    paper = False,
+    plot = False,
+)
 students = members.query('type == "student"')
 students.name = "students"
 students.presenters = postdocs.presenters.copy()
+students.volunteered = postdocs.volunteered.copy()
 
-print(postdocs)
+# select volunteers if there are any
+for k, l in iter(volunteers.items()):
+    for v in l:
+        vgroup = None
+        for group in (postdocs, students):
+            if v in group.index and group.volunteered[k] is False:
+                vgroup = group
+                break
+        if vgroup is None:
+            for group in (postdocs, students):
+                if not group.volunteered[k]:
+                    vgroup = group
+                    break
+        group.presenters[k] = v
+        group.volunteered[k] = True
 
 # choose the paper presenters randomly from those who have presented the
 # minimum number of times.
 for contribution in ('papers', 'plots'):
     for group in (students, postdocs):
-        mi = group[contribution].min()
-        pool = list(group.query(contribution + ' == @mi').index)
-        print("/n/n",pool)
-        group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
+        if not group.volunteered[contribution[:-1]]:
+            mi = group[contribution].min()
+            pool = list(group.query(contribution + ' == @mi').index)
+            group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
 
-# if we have someone who is meant to be presenting both types of
-# contributions then keep randomizing the plot presenter choce until we get
-# a valid combination (if possible)
-max_tries = 100
-n_tries = 0
-#  import pdb
-#  pdb.set_trace()
-for group in (students, postdocs):
-    while len(set(group.presenters.values())) < 2:
-        mi = group["plots"].min()
-        pool = list(group.query('plots == @mi').index)
-        group.presenters["plot"] = random.sample(pool, 1)[0]
-        n_tries+=1
-        if n_tries == max_tries:
-            warnings.warn("Failed to find unique paper + plot presenters for"
-                          " the %s!" % group.name)
-            break
+            # if we have someone who is meant to be presenting both types of
+            # contributions then keep randomizing until we get
+            # a valid combination (if possible)
+            max_tries = 100
+            n_tries = 0
+            while len(set(group.presenters.values())) < 2:
+                try:
+                    group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
+                except ValueError:
+                    n_tries = max_tries
+                n_tries+=1
+                if n_tries >= max_tries:
+                    mi += 1
+                    pool = list(group.query(contribution + ' == @mi').index)
+                    n_tries = 0
 
 # write the presenters to a file
 presenters = dict(postdocs = postdocs.presenters,

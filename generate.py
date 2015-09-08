@@ -6,10 +6,10 @@ from jinja2 import Environment, FileSystemLoader
 
 # read in the list of members and their presenting histories
 with open('members.yaml', 'r') as fd:
-    members = yaml.load(fd)
+    members_in = yaml.load(fd)
 
 # convert to a pandas dataframe
-members = pd.DataFrame.from_dict(members).T
+members = pd.DataFrame.from_dict(members_in).T
 members.index.name = 'name'
 
 # generate plots of the current standings and render them to html files
@@ -33,3 +33,13 @@ env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('index.html')
 with open('build/index.html', 'w') as fd:
     fd.write(template.render(presenters=presenters))
+
+# increment the presenter counters
+for member_type in iter(presenters.values()):
+    for presentation, name in iter(member_type.items()):
+        members_in[name][presentation+'s'] += 1
+
+# write out the updated members list
+with open('members.yaml', 'w') as fd:
+    yaml.safe_dump(members_in, fd)
+

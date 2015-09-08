@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import json
 import datetime
+import pandas as pd
 
 def _next_weekday(d, weekday):
     """http://stackoverflow.com/a/6558571"""
@@ -30,4 +31,4 @@ def scrape_doodle():
     for t in ('paper', 'plot'):
         volunteers[t] = list(df.columns[df.loc[next_thursday, t]])
 
-    return volunteers
+    return volunteers, df
