@@ -10,7 +10,6 @@ with open('members.yaml', 'r') as fd:
 
 # convert to a pandas dataframe
 members = pd.DataFrame.from_dict(members).T
-members.available.fillna(True, inplace=True)
 members.index.name = 'name'
 
 # generate plots of the current standings and render them to html files

@@ -23,12 +23,16 @@ with open('members.yaml', 'w') as fd:
 
 # convert to a pandas dataframe
 members = pd.DataFrame.from_dict(members).T
-members.available.fillna(True, inplace=True)
 members.index.name = 'name'
 
 # cut down the members to just those who are available this coming week and
 # split by type
-members = members.query('available')
+try:
+    members.available.fillna(True, inplace=True)
+    members = members.query('available')
+except AttributeError:
+    pass
+
 postdocs = members.query('type == "postdoc"')
 postdocs.name = "postdocs"
 postdocs.presenters = dict(
@@ -39,12 +43,15 @@ students = members.query('type == "student"')
 students.name = "students"
 students.presenters = postdocs.presenters.copy()
 
+print(postdocs)
+
 # choose the paper presenters randomly from those who have presented the
 # minimum number of times.
 for contribution in ('papers', 'plots'):
     for group in (students, postdocs):
         mi = group[contribution].min()
         pool = list(group.query(contribution + ' == @mi').index)
+        print("/n/n",pool)
         group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
 
 # if we have someone who is meant to be presenting both types of
