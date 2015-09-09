@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Sims Lunch</h1>
-                        <p class="intro-text">And our next presenters will be...</p>
+                        <p class="intro-text">({{ date }})<br>And our next presenters will be...</p>
                         <a href="#current" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -62,6 +62,8 @@
     <section id="past" class="content-section text-center">
         <div class="history-section">
             <div class="container">
+                <p>Don't forget, you can volunteer for any future meeting of your choosing at <a href="http://doodle.com/poll/g3idnd5gfg8ck2ze">the doodle pool</a>.  Doing so will reduce your chances of being randomly selected to present!</p>
+                <br>
                 <h2>Past Presenters</h2>
                 {% include "papers_history.html" %}
                 <br>
