@@ -4,7 +4,6 @@ import re
 import json
 import pandas as pd
 import datetime
-import numpy as np
 
 def scrape_doodle():
     soup = BeautifulSoup(urlopen("http://doodle.com/poll/g3idnd5gfg8ck2ze"), )
@@ -20,7 +19,7 @@ def scrape_doodle():
 
     # remove past dates
     today = datetime.date.today()
-    sel = [datetime.datetime.strptime(v, '%m/%d/%y').date() > today for v in df.index.levels[0]]
-    df = df[np.dstack([sel, sel])[0].flatten()]
+    sel = [datetime.datetime.strptime(v[0], '%m/%d/%y').date() > today for v in df.index.ravel()]
+    df = df[sel]
 
     return df

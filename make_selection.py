@@ -17,8 +17,7 @@ def next_simslunch():
     return today + datetime.timedelta(days_ahead)
 
 
-if __name__ == "__main__":
-
+def make_selection():
     # read in the list of members and their presenting histories
     with open('members.yaml', 'r') as fd:
         members = yaml.load(fd)
@@ -111,3 +110,7 @@ if __name__ == "__main__":
                       students = students.presenters)
     with open("selected_presenters.yaml", "w") as fd:
         yaml.safe_dump(presenters, fd)
+
+
+if __name__ == "__main__":
+    make_selection()
