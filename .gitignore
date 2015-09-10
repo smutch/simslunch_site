@@ -4,3 +4,4 @@ templates/plots_history.html
 *.pyc
 selected_presenters.yaml
 build/index.html
+doodle_poll.pkl
