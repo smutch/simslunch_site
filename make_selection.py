@@ -26,14 +26,6 @@ def make_selection():
     members = pd.DataFrame.from_dict(members).T
     members.index.name = 'name'
 
-    # cut down the members to just those who are available this coming week and
-    # split by type
-    try:
-        members.available.fillna(True, inplace=True)
-        members = members.query('available')
-    except AttributeError:
-        pass
-
     # Temporarily increment the contribution counts to include future volunteers
     doodle_poll = scrape_doodle()
     next_thursday = next_simslunch().strftime("%-m/%-d/%y")
@@ -47,6 +39,14 @@ def make_selection():
     # pickle the doodle poll for later use
     with open("doodle_poll.pkl", "wb") as fd:
         pickle.dump(doodle_poll, fd)
+
+    # cut down the members to just those who are available this coming week and
+    # split by type
+    try:
+        members.available.fillna(True, inplace=True)
+        members = members.query('available')
+    except AttributeError:
+        pass
 
     # Set up the dicts for storing the selection information
     postdocs = members.query('type == "postdoc"')
