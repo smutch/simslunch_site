@@ -3,5 +3,4 @@ templates/plots_history.html
 .DS_Store
 *.pyc
 selected_presenters.yaml
-build/index.html
 doodle_poll.pkl
