@@ -9,4 +9,7 @@ auto:
 	python generate.py
 	open build/index.html
 
-.PHONY: manual auto
+push:
+	git subtree push --prefix build github gh-pages
+
+.PHONY: manual auto push
