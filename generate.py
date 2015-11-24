@@ -37,7 +37,7 @@ def generate():
         axes.x.ticks.labels.angle = 45
         axes.x.ticks.show = True
         axes.x.ticks.labels.style = {"baseline-shift":0, "text-anchor":"end", "-toyplot-anchor-shift":"-6px"}
-        axes.y.label.text = "Times presented"
+        #  axes.y.label.text = "Times presented"
         axes.y.ticks.locator = toyplot.locator.Integer()
         axes.coordinates.show = False
         palette = toyplot.color.Palette()
