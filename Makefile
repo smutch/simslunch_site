@@ -10,6 +10,6 @@ auto:
 	open build/index.html
 
 push:
-	git subtree push --prefix build github gh-pages
+	git subtree push --prefix build origin gh-pages
 
 .PHONY: manual auto push
