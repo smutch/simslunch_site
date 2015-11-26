@@ -87,6 +87,7 @@ def make_selection():
             if not group.volunteered[contribution[:-1]]:
                 mi = group[contribution].min()
                 pool = list(group.query(contribution + ' == @mi').index)
+                print(group,pool)
                 group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
 
                 # if we have someone who is meant to be presenting both types of

@@ -1,14 +1,14 @@
 Camila: {papers: 2, plots: 1, type: student}
 Chiara: {papers: 2, plots: 1, type: postdoc}
 Chuanwu: {papers: 1, plots: 1, type: student}
-Edoardo: {papers: 1, plots: 1, type: postdoc}
-Greg: {papers: 2, plots: 1, type: postdoc}
-Hank: {papers: 1, plots: 2, type: postdoc, unavailable: true}
-Jaehong: {papers: 1, plots: 2, type: student}
+Edoardo: {papers: 2, plots: 1, type: postdoc}
+Greg: {papers: 2, plots: 2, type: postdoc}
+Hank: {papers: 1, plots: 2, type: postdoc, available: False}
+Jaehong: {papers: 2, plots: 2, type: student}
 Katie: {papers: 1, plots: 1, type: postdoc}
 Laura: {papers: 2, plots: 1, type: postdoc}
 Paul A: {papers: 2, plots: 2, type: student}
 Paul G: {papers: 2, plots: 2, type: postdoc}
-Sarah: {papers: 2, plots: 1, type: student}
+Sarah: {papers: 2, plots: 2, type: student}
 Simon: {papers: 2, plots: 1, type: postdoc}
 Yuxiang: {papers: 2, plots: 1, type: student}
