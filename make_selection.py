@@ -71,14 +71,16 @@ def make_selection():
             for group in (postdocs, students):
                 if v in group.index and group.volunteered[k] is False:
                     vgroup = group
+                    group.presenters[k] = v
+                    group.volunteered[k] = True
                     break
-            if vgroup is None:
-                for group in (postdocs, students):
-                    if not group.volunteered[k]:
-                        vgroup = group
-                        break
-            group.presenters[k] = v
-            group.volunteered[k] = True
+            #if vgroup is None:
+            #    for group in (postdocs, students):
+            #        if not group.volunteered[k]:
+            #            vgroup = group
+            #            break
+            #group.presenters[k] = v
+            #group.volunteered[k] = True
 
     # choose the paper presenters randomly from those who have presented the
     # minimum number of times.
@@ -87,7 +89,6 @@ def make_selection():
             if not group.volunteered[contribution[:-1]]:
                 mi = group[contribution].min()
                 pool = list(group.query(contribution + ' == @mi').index)
-                print(group,pool)
                 group.presenters[contribution[:-1]] = random.sample(pool, 1)[0]
 
                 # if we have someone who is meant to be presenting both types of
