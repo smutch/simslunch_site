@@ -27,7 +27,7 @@ def make_selection():
     members.index.name = 'name'
 
     # Temporarily increment the contribution counts to include future volunteers
-    doodle_poll = scrape_doodle()
+    doodle_poll = scrape_doodle("http://doodle.com/poll/g3idnd5gfg8ck2ze")
     next_thursday = next_simslunch().strftime("%-m/%-d/%y")
     volunteers = {}
     for t in ('paper', 'plot'):

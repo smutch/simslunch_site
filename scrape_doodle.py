@@ -5,8 +5,8 @@ import json
 import pandas as pd
 import datetime
 
-def scrape_doodle():
-    soup = BeautifulSoup(urlopen("http://doodle.com/poll/g3idnd5gfg8ck2ze"), )
+def scrape_doodle(link):
+    soup = BeautifulSoup(urlopen(link), )
     jscript = soup.find_all('script')[-7].string
     data = json.loads(re.search('\{("poll":.*)\}', jscript).group(0))['poll']
 
