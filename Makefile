@@ -11,7 +11,7 @@ auto:
 
 push:
 	git add .
-	git commit -m "increment `date +"%d/%m/%y"`
+	git commit -m "increment `date +"%d/%m/%y"`"
 	git subtree push --prefix build origin gh-pages
 
 .PHONY: manual auto push
