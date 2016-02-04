@@ -1,14 +1,14 @@
-Camila: {papers: 2, plots: 2, type: student}
-Chiara: {papers: 2, plots: 1, type: postdoc}
-Chuanwu: {papers: 3, plots: 1, type: student}
+Camila: {papers: 2, plots: 2, type: student ,available: false}
+Chiara: {papers: 2, plots: 1, type: postdoc ,available: false}
+Chuanwu: {papers: 3, plots: 2, type: student ,available: false}
 Edoardo: {papers: 2, plots: 2, type: postdoc}
-Greg: {papers: 2, plots: 2, type: postdoc}
-Hank: {available: false, papers: 1, plots: 2, type: postdoc}
+Greg: {papers: 2, plots: 2, type: postdoc ,available: false}
+Hank: {papers: 1, plots: 2, type: postdoc ,available: false}
 Jaehong: {papers: 2, plots: 2, type: student}
 Katie: {papers: 2, plots: 1, type: postdoc}
-Laura: {papers: 3, plots: 1, type: postdoc}
-Paul A: {papers: 2, plots: 2, type: student}
-Paul G: {papers: 2, plots: 2, type: postdoc}
+Laura: {papers: 3, plots: 1, type: postdoc ,available: false}
+Paul A: {papers: 2, plots: 2, type: student ,available: false}
+Paul G: {papers: 2, plots: 2, type: postdoc ,available: false}
 Sarah: {papers: 2, plots: 2, type: student}
-Simon: {papers: 2, plots: 1, type: postdoc}
-Yuxiang: {papers: 2, plots: 1, type: student}
+Simon: {papers: 2, plots: 1, type: postdoc ,available: false}
+Yuxiang: {papers: 2, plots: 1, type: student ,available: false}
