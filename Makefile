@@ -1,10 +1,12 @@
 manual:
+	python available.py
 	python make_selection.py
 	python generate.py
 	open build/index.html
 
 auto:
 	python increment.py
+	python available.py
 	python make_selection.py
 	python generate.py
 	open build/index.html

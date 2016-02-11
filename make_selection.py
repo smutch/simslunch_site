@@ -42,11 +42,7 @@ def make_selection():
 
     # cut down the members to just those who are available this coming week and
     # split by type
-    try:
-        members.available.fillna(True, inplace=True)
-        members = members.query('available')
-    except AttributeError:
-        pass
+    members = members[members.available==1] 
 
     # Set up the dicts for storing the selection information
     postdocs = members.query('type == "postdoc"')
