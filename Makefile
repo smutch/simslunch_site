@@ -16,4 +16,8 @@ push:
 	git commit -m "increment `date +"%d/%m/%y"`"
 	git subtree push --prefix build origin gh-pages
 
+email:
+	mail -s "Speakers for next week" "simulation_lunch@lists.unimelb.edu.au" <email.txt
+
+
 .PHONY: manual auto push

@@ -4,6 +4,7 @@ import yaml
 import pandas as pd
 import datetime
 from scrape_doodle import scrape_doodle
+from termcolor import colored
 import numpy as np
 import pickle
 
@@ -18,6 +19,9 @@ def next_simslunch():
 
 
 def make_selection():
+
+    femail = open('email.txt', 'w')
+    femail.write('Hi all,\n\nRNGesus has spoken:\n\nHere are the speakers for next week (http://smutch.github.io/simslunch_site/index.html):\n\n')
     # read in the list of members and their presenting histories
     with open('members.yaml', 'r') as fd:
         members = yaml.load(fd)
@@ -29,6 +33,7 @@ def make_selection():
     # Temporarily increment the contribution counts to include future volunteers
     doodle_poll = scrape_doodle("http://doodle.com/poll/g3idnd5gfg8ck2ze")
     next_thursday = next_simslunch().strftime("%-m/%-d/%y")
+    femail.write('date: %s\n'%next_simslunch().strftime("%A %d. %B %Y"))
     volunteers = {}
     for t in ('paper', 'plot'):
         volunteers[t] = list(doodle_poll.columns[doodle_poll.loc[next_thursday, t]])
@@ -42,6 +47,7 @@ def make_selection():
 
     # cut down the members to just those who are available this coming week and
     # split by type
+    print(colored("Unavailable list: %s"%members[members.available==0].index,'red'))
     members = members[members.available==1] 
 
     # Set up the dicts for storing the selection information
@@ -69,6 +75,8 @@ def make_selection():
                     vgroup = group
                     group.presenters[k] = v
                     group.volunteered[k] = True
+                    print(colored(v+" Volunteered for "+k,'red'))
+                    femail.write(v+" Volunteered for "+k+'\n')
                     break
             #if vgroup is None:
             #    for group in (postdocs, students):
@@ -106,8 +114,14 @@ def make_selection():
     # write the presenters to a file
     presenters = dict(postdocs = postdocs.presenters,
                       students = students.presenters)
+    print(colored(presenters,"red"))
+    femail.write('paper:\t%s\t%s\nplot:\t%s\t%s\n'%(presenters['students']['paper']\
+            ,presenters['postdocs']['paper'],presenters['students']['plot'],presenters['postdocs']['plot']))
     with open("selected_presenters.yaml", "w") as fd:
         yaml.safe_dump(presenters, fd)
+
+    femail.write('\nCheers,\nYuxiang')
+    femail.close()
 
 
 if __name__ == "__main__":
