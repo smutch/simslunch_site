@@ -20,6 +20,17 @@ def next_simslunch():
 
 def make_selection():
 
+    now = datetime.datetime.now()
+    today = datetime.date.today()
+    days_ahead = today.weekday() -3
+    if days_ahead < 0:
+        days_ahead += 7
+    tick_end = datetime.datetime(now.year, now.month, now.day-days_ahead, 17,0,0,0)
+    
+    if now < tick_end:
+        print(colored("THIS IS NOT THE TIME!!!",'red'))
+        #return
+
     femail = open('email.txt', 'w')
     femail.write('Hi all,\n\nRNGesus has spoken:\n\nHere are the speakers for next week (http://smutch.github.io/simslunch_site/index.html):\n\n')
     # read in the list of members and their presenting histories
@@ -39,7 +50,10 @@ def make_selection():
         volunteers[t] = list(doodle_poll.columns[doodle_poll.loc[next_thursday, t]])
     for name in doodle_poll.columns:
         for contribution in ('papers', 'plots'):
-            members.loc[name][contribution] += np.count_nonzero(doodle_poll[name].loc[:, contribution[:-1]])
+            try:
+                members.loc[name][contribution] += np.count_nonzero(doodle_poll[name].loc[:, contribution[:-1]])
+            except KeyError:
+                print(name+'is not here anymore')
 
     # pickle the doodle poll for later use
     with open("doodle_poll.pkl", "wb") as fd:
