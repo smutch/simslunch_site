@@ -4,9 +4,9 @@ RNGesus has spoken:
 
 Here are the speakers for next week (http://smutch.github.io/simslunch_site/index.html):
 
-date: Thursday 10. March 2016
-paper:	Chuanwu	Chiara
-plot:	Jaehong	Edoardo
+date: Thursday 17. March 2016
+paper:	Yuxiang	Simon
+plot:	Sarah	Laura
 
 Cheers,
 Yuxiang
