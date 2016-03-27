@@ -9,7 +9,6 @@ from make_selection import simslunch_time
 import numpy as np
 
 def generate():
-
     # read in the list of members and their presenting histories
     with open('members.yaml', 'r') as fd:
         members = yaml.load(fd)
@@ -26,28 +25,24 @@ def generate():
     for t in ('paper', 'plot'):
         members['vcount_'+t] = doodle_poll.query('type == @t').sum()
 
-    members = members.fillna(0)
-
-    # generate plotss of the current standings and render them to html files
-    for contribution in ["papers", "plots"]:
-        pool = members
-        data = np.column_stack((pool[contribution.lower()],
-                                pool["vcount_"+contribution.lower()[:-1]]))
-        canvas = toyplot.Canvas(800, 500)
-        axes = canvas.axes(bounds=(80, -200, 50, -120))
+    # generate plots of the current standings and render them to html files
+    for contribution in ["Papers", "Plots"]:
+        data = np.column_stack((members[contribution.lower()],
+                                members["vcount_"+contribution.lower()[:-1]]))
+        canvas = toyplot.Canvas(600, 300)
+        axes = canvas.axes(grid=(1,5,0,1,0,4))
         mark = axes.bars(data, baseline="stacked")
-        axes.x.ticks.locator = toyplot.locator.Explicit(labels=pool.index)
+        axes.x.ticks.locator = toyplot.locator.Explicit(labels=members.index)
         axes.label.text = contribution
-        axes.x.ticks.labels.angle = 30
+        axes.x.ticks.labels.angle = 45
         axes.x.ticks.show = True
         axes.x.ticks.labels.style = {"baseline-shift":0, "text-anchor":"end", "-toyplot-anchor-shift":"-6px"}
-        axes.x.ticks.labels.offset = 8
-        axes.y.label.text = "Times presented"
+        #  axes.y.label.text = "Times presented"
         axes.y.ticks.locator = toyplot.locator.Integer()
         axes.coordinates.show = False
         palette = toyplot.color.Palette()
         canvas.legend([
-            ("Finished (past)", "rect", {"fill":palette.css(0),}),
+            ("Presented (past)", "rect", {"fill":palette.css(0),}),
             ("Volunteered (future)", "rect", {"fill":palette.css(1),}),
         ], corner=("right", 80, 80, 50),)
         toyplot.html.render(canvas, fobj="templates/"+contribution.lower()+"_history.html")
@@ -56,14 +51,13 @@ def generate():
     with open('selected_presenters.yaml', 'r') as fd:
         presenters = yaml.load(fd)
 
-    presenters = pd.DataFrame.from_dict(presenters).T
-    presenters.index.name = 'name'
-
     # render the page
     env = Environment(loader=FileSystemLoader('templates'))
     template = env.get_template('index.html')
     with open('build/index.html', 'w') as fd:
-        fd.write(template.render(dates = [pd.to_datetime(item).to_pydatetime().strftime("%d. %B %Y") for item in presenters.index] , presenters=presenters))
+        fd.write(template.render(presenters=presenters,
+                                 date=simslunch_time().strftime("%d/%m/%y")))
+
 
 if __name__ == "__main__":
     generate()
