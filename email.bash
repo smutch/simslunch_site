@@ -10,14 +10,14 @@ Please allow me to remind you that you are the speaker (for paper) for the simul
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks later) speaker on the simulation lunch meeting' kmack@unimelb.edu.au <<< 'Hi Katie,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' kmack@unimelb.edu.au <<< 'Hi Katie,
 
 You are selected to be the speaker (for paper) for the simulation lunch meeting to be held 2 weeks later (07/April/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a paper:)
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks later) speaker on the simulation lunch meeting' lwolz@unimelb.edu.au <<< 'Hi Laura,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' lwolz@unimelb.edu.au <<< 'Hi Laura,
 
 You are selected to be the speaker (for paper) for the simulation lunch meeting to be held 2 weeks later (07/April/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a paper:)
@@ -36,14 +36,14 @@ Please allow me to remind you that you are the speaker (for plot) for the simula
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks later) speaker on the simulation lunch meeting' smutch@unimelb.edu.au <<< 'Hi Simon,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' smutch@unimelb.edu.au <<< 'Hi Simon,
 
 You are selected to be the speaker (for plot) for the simulation lunch meeting to be held 2 weeks later (07/April/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a plot:)
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks later) speaker on the simulation lunch meeting' gpoole@unimelb.edu.au <<< 'Hi Greg,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' chiara.tonini@unimelb.edu.au <<< 'Hi Chiara,
 
 You are selected to be the speaker (for plot) for the simulation lunch meeting to be held 2 weeks later (07/April/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a plot:)

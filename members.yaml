@@ -3,7 +3,7 @@ Chuanwu: {available: 1, email: chuanwul@student.unimelb.edu.au, papers: 4, plots
   type: student}
 Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 3, plots: 3,
   type: postdoc}
-Greg: {available: 1, email: gpoole@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
+Greg: {available: 0, email: gpoole@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
 Hank: {available: 0, email: hansikk@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
 Jaehong: {available: 1, email: jaehongP@student.unimelb.edu.au, papers: 4, plots: 4,
   type: student}

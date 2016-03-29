@@ -14,7 +14,8 @@ def simslunch_time(week=2):
     weekday = 3  # 0 = Monday, 1=Tuesday, 2=Wednesday...
     days_ahead = weekday - today.weekday()
     if days_ahead <= 0: # Target day already happened this week
-        days_ahead += 7*week
+        week-=1
+    days_ahead +=7*week
     return today + datetime.timedelta(days_ahead)
 
 
@@ -41,7 +42,7 @@ def make_selection():
     emails = members.email
     
     # cut down the members to just those who are available this coming week 
-    print(colored("Unavailable list: %s"%members[members.available==0].index.item(),'red'))
+    print(colored("Unavailable list: %s"%members[members.available==0].index.tolist(),'red'))
     members = members[members.available==1]                                           
                                                                                    
     if len(members)<4:                                                                
@@ -53,6 +54,7 @@ def make_selection():
     this_thursday = simslunch_time(week=0).strftime("%-m/%-d/%y")
     next_thursday = simslunch_time(week=1).strftime("%-m/%-d/%y")
     next2_thursday = simslunch_time(week=2).strftime("%-m/%-d/%y")
+    print(this_thursday,next_thursday,next2_thursday)
     volunteers = {}
     for t in ('paper', 'plot'):
         volunteers[t] = list(doodle_poll.columns[doodle_poll.loc[next2_thursday, t]])
@@ -105,7 +107,7 @@ def make_selection():
         yaml.safe_dump(selected_presenters, fd)            
 
     print(colored('Next week (%s):\npapers:\t%s\nplots:\t%s\n'%(next_thursday,selected_presenters[next_thursday]['paper'], selected_presenters[next_thursday]['plot']),'red'))
-    print(colored('2 week later (%s):\npapers:\t%s\nplots:\t%s\n'%(next2_thursday,selected_presenters[next2_thursday]['paper'], selected_presenters[next2_thursday]['plot']),'red'))
+    print(colored('2 weeks later (%s):\npapers:\t%s\nplots:\t%s\n'%(next2_thursday,selected_presenters[next2_thursday]['paper'], selected_presenters[next2_thursday]['plot']),'red'))
 
     f = open('email.bash','w')
     for contribution in ('paper', 'plot'):
@@ -117,7 +119,7 @@ def make_selection():
                 context = 'Hi %s,\n\nYou volunteered to be the speaker (for %s) for the simulation lunch meeting to be held 2 weeks later (%s). (http://smutch.github.io/simslunch_site/index.html)\nPlease let me know if you do not want to present a %s:)\n\nCheers,\nYuxiang'%(name, contribution, simslunch_time(week=2).strftime("%d/%B/%y"),contribution)
             else:
                 context = 'Hi %s,\n\nYou are selected to be the speaker (for %s) for the simulation lunch meeting to be held 2 weeks later (%s). (http://smutch.github.io/simslunch_site/index.html)\nPlease let me know if you do not want to present a %s:)\n\nCheers,\nYuxiang'%(name, contribution, simslunch_time(week=2).strftime("%d/%B/%y"),contribution)
-            f.write("mail -s '(2 Weeks later) speaker on the simulation lunch meeting' %s <<< '%s'\n"%(emails[name], context))
+            f.write("mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' %s <<< '%s'\n"%(emails[name], context))
     f.close()
             
 if __name__ == "__main__":
