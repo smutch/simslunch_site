@@ -1,4 +1,4 @@
-Chiara: {available: 1, email: chiara.tonini@unimelb.edu.au, papers: 3, plots: 2, type: postdoc}
+Chiara: {available: 0, email: chiara.tonini@unimelb.edu.au, papers: 3, plots: 2, type: postdoc}
 Chuanwu: {available: 1, email: chuanwul@student.unimelb.edu.au, papers: 4, plots: 3,
   type: student}
 Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 3, plots: 3,
@@ -9,8 +9,8 @@ Jaehong: {available: 1, email: jaehongP@student.unimelb.edu.au, papers: 4, plots
   type: student}
 Katie: {available: 1, email: kmack@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
 Laura: {available: 1, email: lwolz@unimelb.edu.au, papers: 3, plots: 2, type: postdoc}
-Paul G: {available: 1, email: geil.p@unimelb.edu.au, papers: 3, plots: 3, type: postdoc}
+Paul G: {available: 0, email: geil.p@unimelb.edu.au, papers: 3, plots: 3, type: postdoc}
 Sarah: {available: 1, email: sschon@student.unimelb.edu.au, papers: 3, plots: 4, type: student}
 Simon: {available: 1, email: smutch@unimelb.edu.au, papers: 3, plots: 1, type: postdoc}
-Yuxiang: {available: 1, email: yuxiangq@student.unimelb.edu.au, papers: 4, plots: 3,
+Yuxiang: {available: 0, email: yuxiangq@student.unimelb.edu.au, papers: 4, plots: 3,
   type: student}

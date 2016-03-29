@@ -14,8 +14,8 @@ def simslunch_time(week=2):
     weekday = 3  # 0 = Monday, 1=Tuesday, 2=Wednesday...
     days_ahead = weekday - today.weekday()
     if days_ahead <= 0: # Target day already happened this week
-        week-=1
-    days_ahead +=7*week
+        week+=1
+    days_ahead +=7*(week-1)
     return today + datetime.timedelta(days_ahead)
 
 
