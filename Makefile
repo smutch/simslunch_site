@@ -12,6 +12,10 @@ reselect:
 	python make_selection.py  
 	cat selected_presenters_tba.yaml
 
+replace:
+	python replace.py $(name)
+	cat selected_presenters_tba.yaml
+
 confirm:
 	mv selected_presenters.yaml selected_presenters.yaml.bak
 	mv selected_presenters_tba.yaml selected_presenters.yaml
