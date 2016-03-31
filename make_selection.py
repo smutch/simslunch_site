@@ -83,6 +83,10 @@ def make_selection():
     # selected presenters list
     with open('selected_presenters.yaml', 'r') as fd: 
         selected_presenters = yaml.load(fd)
+		
+    this_thursday = simslunch_time(week=0).strftime("%m/%d/%y")
+    next_thursday = simslunch_time(week=1).strftime("%m/%d/%y")
+    next2_thursday = simslunch_time(week=2).strftime("%m/%d/%y")
 
     # choose the paper presenters randomly from those who have presented the
     # minimum number of times.
