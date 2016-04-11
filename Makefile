@@ -29,6 +29,5 @@ push:
 
 email:
 	bash email.bash
-	#mail -s "Speakers for next week" "simulation_lunch@lists.unimelb.edu.au" <email.txt
 
-.PHONY: increment select reselect confirm push email
+.PHONY: increment select reselect confirm push email replace

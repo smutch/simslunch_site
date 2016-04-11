@@ -59,7 +59,7 @@ def replace(name):
     count_min = members[reselect_contribution].min()
     count_max = members[reselect_contribution].max()
     diff = count_max - count_min
-    while offset<diff:
+    while offset<=diff:
         mi = count_min+offset
         pool = list(set(members.query(reselect_contribution + ' == @mi').index) - set(selected_presenters[next2_thursday]['paper'].split(', ')) - set(selected_presenters[next2_thursday]['plot'].split(', ')) - set(selected_presenters[next_thursday][reselect_contribution[:-1]].split(', ')))
         if len(pool)<1:

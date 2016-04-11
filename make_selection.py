@@ -95,7 +95,7 @@ def make_selection():
         count_min = members[contribution].min()
         count_max = members[contribution].max()
         diff = count_max - count_min
-        while (len(presenters[contribution[:-1]])<2) and (offset<diff):
+        while (len(presenters[contribution[:-1]])<2) and (offset<=diff):
             mi = count_min+offset
             pool = list(set(members.query(contribution + ' == @mi').index) - set(presenters['paper']) - set(presenters['plot']) - set(selected_presenters[next_thursday][contribution[:-1]].split(', ')))
             presenters[contribution[:-1]] += random.sample(pool, min(len(pool),2-len(presenters[contribution[:-1]])))
