@@ -30,14 +30,14 @@ Please allow me to remind you that you are the speaker (for plot) for the simula
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' lwolz@unimelb.edu.au <<< 'Hi Laura,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' yuxiangq@student.unimelb.edu.au <<< 'Hi Yuxiang,
 
 You are selected to be the speaker (for plot) for the simulation lunch meeting to be held 2 weeks later (12/May/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a plot:)
 
 Cheers,
 Yuxiang'
-mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' yuxiangq@student.unimelb.edu.au <<< 'Hi Yuxiang,
+mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' hansikk@unimelb.edu.au <<< 'Hi Hank,
 
 You are selected to be the speaker (for plot) for the simulation lunch meeting to be held 2 weeks later (12/May/16). (http://smutch.github.io/simslunch_site/index.html)
 Please let me know if you do not want to present a plot:)
