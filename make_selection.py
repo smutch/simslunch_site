@@ -63,8 +63,7 @@ def make_selection():
             try:
                 members.loc[name][contribution] += np.count_nonzero(doodle_poll[name].loc[:, contribution[:-1]])
             except KeyError:
-                #print(name+' is not here')
-                pass
+                print(name+' is not here')
 
     # pickle the doodle poll for later use
     with open("doodle_poll.pkl", "wb") as fd:
@@ -83,7 +82,7 @@ def make_selection():
     # selected presenters list
     with open('selected_presenters.yaml', 'r') as fd: 
         selected_presenters = yaml.load(fd)
-		
+        
     this_thursday = simslunch_time(week=0).strftime("%m/%d/%y")
     next_thursday = simslunch_time(week=1).strftime("%m/%d/%y")
     next2_thursday = simslunch_time(week=2).strftime("%m/%d/%y")
