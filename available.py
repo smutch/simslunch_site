@@ -6,7 +6,7 @@ from make_selection import simslunch_time
 
 def available():
 
-    left = ['Camila', 'Paul A']
+    left = ['Camila', 'Paul A', 'Jaehong']
 
     # read in the list of members and their presenting histories
     with open('members.yaml', 'r') as fd:
