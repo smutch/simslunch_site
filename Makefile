@@ -13,7 +13,7 @@ reselect:
 	cat selected_presenters_tba.yaml
 
 replace:
-	python replace.py $(name)
+	python replace.py "$(name)"
 	cat selected_presenters_tba.yaml
 
 confirm:
