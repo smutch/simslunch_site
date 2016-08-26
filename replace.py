@@ -76,7 +76,7 @@ def replace(name):
     print(colored('2 weeks later (%s):\npapers:\t%s\nplots:\t%s\n'%(next2_thursday,selected_presenters[next2_thursday]['paper'], selected_presenters[next2_thursday]['plot']),'red'))
 
     f = open('email.bash','w')
-    context = 'Hi %s,\n\nYou are selected to be the speaker (for %s) for the simulation lunch meeting to be held 2 weeks later (%s). (http://smutch.github.io/simslunch_site/index.html)\nPlease let me know if you do not want to present a %s:)\n\nCheers,\nYuxiang'%(reselected_name, reselect_contribution, simslunch_time(week=2).strftime("%d/%B/%y"),reselect_contribution)
+	context = 'Hi %s,\n\nYou are selected to be the speaker (for %s) for the simulation lunch meeting to be held 2 weeks later (%s). (http://smutch.github.io/simslunch_site/index.html)\nPlease let me know if you do not want to present a %s:)\n\nCheers,\nYuxiang'%(reselected_name, reselect_contribution, simslunch_time(week=2).strftime("%d/%B/%y"),reselect_contribution[:-1])
     f.write("mail -s '(2 Weeks Later) speaker on the simulation lunch meeting' %s <<< '%s'\n"%(emails[reselected_name], context))
     f.close()
             
