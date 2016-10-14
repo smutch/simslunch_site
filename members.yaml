@@ -5,11 +5,11 @@ Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 7, plots:
   type: postdoc}
 Greg: {available: 1, email: gpoole@unimelb.edu.au, papers: 7, plots: 4, type: postdoc}
 Hank: {available: 1, email: hansikk@unimelb.edu.au, papers: 8, plots: 5, type: postdoc}
-Katie: {available: 1, email: kmack@unimelb.edu.au, papers: 7, plots: 6, type: postdoc}
-Laura: {available: 1, email: lwolz@unimelb.edu.au, papers: 8, plots: 5, type: postdoc}
-Manodeep: {available: 0, email: manodeep.sinha@unimelb.edu.au, papers: 7, plots: 6,
+Katie: {available: 1, email: kmack@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
+Laura: {available: 0, email: lwolz@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
+Manodeep: {available: 1, email: manodeep.sinha@unimelb.edu.au, papers: 8, plots: 6,
   type: postdoc}
-Paul G: {available: 1, email: geil.p@unimelb.edu.au, papers: 7, plots: 5, type: postdoc}
+Paul G: {available: 1, email: geil.p@unimelb.edu.au, papers: 7, plots: 6, type: postdoc}
 Sarah: {available: 1, email: sschon@student.unimelb.edu.au, papers: 7, plots: 5, type: student}
 Simon: {available: 0, email: smutch@unimelb.edu.au, papers: 6, plots: 6, type: postdoc}
 Yuxiang: {available: 0, email: yuxiangq@student.unimelb.edu.au, papers: 7, plots: 5,
