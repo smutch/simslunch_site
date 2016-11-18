@@ -30,4 +30,18 @@ push:
 email:
 	bash email.bash
 
-.PHONY: increment select reselect confirm push email replace
+auto:
+	python increment.py
+	python available.py  
+	python make_selection.py 
+	cat selected_presenters_tba.yaml
+	mv selected_presenters.yaml selected_presenters.yaml.bak
+	mv selected_presenters_tba.yaml selected_presenters.yaml 
+	python generate.py
+	open build/index.html
+	git add .
+	git commit -m "increment `date +"%d/%m/%y"`"
+	git subtree push --prefix build origin gh-pages
+	bash email.bash
+
+.PHONY: increment select reselect confirm push email replace auto

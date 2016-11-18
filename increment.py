@@ -11,8 +11,9 @@ def increment():
 
     # increment the presenter counters
     for member_type in iter(presenters.values()):
-        for presentation, name in iter(member_type.items()):
-            members[name][presentation+'s'] += 1
+        for presentation, names in iter(member_type.items()):
+            for name in names.split(', '):
+                members[name][presentation+'s'] += 1
 
     # write out the updated members list
     with open('members.yaml', 'w') as fd:
