@@ -54,6 +54,8 @@ def make_selection():
     this_thursday = simslunch_time(week=0).strftime("%-m/%-d/%y")
     next_thursday = simslunch_time(week=1).strftime("%-m/%-d/%y")
     next2_thursday = simslunch_time(week=2).strftime("%-m/%-d/%y")
+    doodle_poll[doodle_poll=='q']=False      
+    doodle_poll = doodle_poll.astype(np.bool)
     print(this_thursday,next_thursday,next2_thursday)
     volunteers = {}
     for t in ('paper', 'plot'):

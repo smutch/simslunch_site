@@ -14,6 +14,8 @@ def available():
     
     doodle_poll = scrape_doodle("http://doodle.com/poll/umri2w7pxqnged37")
     next2_thursday = simslunch_time().strftime("%-m/%-d/%y")
+    doodle_poll[doodle_poll=='q']=False      
+    doodle_poll = doodle_poll.astype(np.bool)
 
     unavailable = list(doodle_poll.columns[doodle_poll.loc[next2_thursday, 'unavailable']])
     for name in members.keys():   

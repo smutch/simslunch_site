@@ -1,12 +1,12 @@
 Chiara: {available: 0, email: chiara.tonini@unimelb.edu.au, papers: 5, plots: 6, type: postdoc}
 Chuanwu: {available: 1, email: chuanwul@student.unimelb.edu.au, papers: 8, plots: 6,
   type: student}
-Edoardo: {available: 0, email: edoardo.tescari@unimelb.edu.au, papers: 9, plots: 7,
+Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 9, plots: 7,
   type: postdoc}
 Greg: {available: 0, email: gpoole@unimelb.edu.au, papers: 8, plots: 5, type: postdoc}
 Hank: {available: 1, email: hansikk@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
 Katie: {available: 0, email: kmack@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
-Laura: {available: 0, email: lwolz@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
+Laura: {available: 1, email: lwolz@unimelb.edu.au, papers: 8, plots: 6, type: postdoc}
 Manodeep: {available: 1, email: manodeep.sinha@unimelb.edu.au, papers: 9, plots: 7,
   type: postdoc}
 Paul G: {available: 1, email: geil.p@unimelb.edu.au, papers: 9, plots: 6, type: postdoc}
