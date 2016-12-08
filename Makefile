@@ -42,6 +42,6 @@ auto:
 	git add .
 	git commit -m "increment `date +"%d/%m/%y"`"
 	git subtree push --prefix build origin gh-pages
-	bash email.bash
+	#bash email.bash
 
 .PHONY: increment select reselect confirm push email replace auto
