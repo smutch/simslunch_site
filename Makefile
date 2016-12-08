@@ -31,7 +31,7 @@ email:
 	bash email.bash
 
 auto:
-	python increment.py
+	#python increment.py
 	python available.py  
 	python make_selection.py 
 	cat selected_presenters_tba.yaml
