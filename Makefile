@@ -2,6 +2,7 @@ increment:
 	python increment.py
 
 select:
+	cp members.yaml members.yaml.bak
 	python available.py
 	python make_selection.py
 	cat selected_presenters_tba.yaml

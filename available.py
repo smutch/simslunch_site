@@ -6,17 +6,20 @@ from make_selection import simslunch_time
 
 def available():
 
+    # put alumni here or remove them from members.yaml and doodle poll
     left = ['Camila', 'Paul A', 'Jaehong']
 
     # read in the list of members and their presenting histories
     with open('members.yaml', 'r') as fd:
         members = yaml.load(fd)
     
+    # scrape the available poll for next2_thursday
     doodle_poll = scrape_doodle("http://doodle.com/poll/umri2w7pxqnged37")
     next2_thursday = simslunch_time().strftime("%-m/%-d/%y")
-    doodle_poll[doodle_poll=='q']=False      
+    doodle_poll.replace('q',False)           
     doodle_poll = doodle_poll.astype(np.bool)
 
+    # update the 'available' property
     unavailable = list(doodle_poll.columns[doodle_poll.loc[next2_thursday, 'unavailable']])
     for name in members.keys():   
         if name in unavailable or name in left:

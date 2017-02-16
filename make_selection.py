@@ -21,6 +21,9 @@ def simslunch_time(week=2):
 
 def make_selection():
 
+    # check the clock, give people time to visit the doodle polls
+    # the selection can be done after 5pm every Thursday
+    # AND BEFORE SUNDAY!!!
     now = datetime.datetime.now()
     today = datetime.date.today()
     days_ahead = today.weekday() -3
@@ -45,21 +48,16 @@ def make_selection():
     print(colored("Unavailable list: %s"%members[members.available==0].index.tolist(),'red'))
     members = members[members.available==1]                                           
                                                                                    
+    # the meeting is better off when less than 4 participants
     if len(members)<4:                                                                
        print(colored("not enough people","red"))                                     
        return                                                                        
 
     # Temporarily increment the contribution counts to include future volunteers
     doodle_poll = scrape_doodle("http://doodle.com/poll/g3idnd5gfg8ck2ze")
-    this_thursday = simslunch_time(week=0).strftime("%-m/%-d/%y")
-    next_thursday = simslunch_time(week=1).strftime("%-m/%-d/%y")
     next2_thursday = simslunch_time(week=2).strftime("%-m/%-d/%y")
     doodle_poll[doodle_poll=='q']=False      
     doodle_poll = doodle_poll.astype(np.bool)
-    print(this_thursday,next_thursday,next2_thursday)
-    volunteers = {}
-    for t in ('paper', 'plot'):
-        volunteers[t] = list(doodle_poll.columns[doodle_poll.loc[next2_thursday, t]])
     for name in doodle_poll.columns:
         for contribution in ('papers', 'plots'):
             try:
@@ -74,10 +72,13 @@ def make_selection():
     presenters = dict(paper = "", plot = "") 
 
     # select volunteers if there are any
+    volunteers = {}
+    for t in ('paper', 'plot'):
+        volunteers[t] = list(doodle_poll.columns[doodle_poll.loc[next2_thursday, t]])
     for k, l in iter(volunteers.items()):
         if len(l)>0:
             presenters[k] = l                                 
-            print(colored("Volunteer for "+k+" by "+str(l)[1:-1],'red')) 
+            print(colored("Volunteered for "+k+" by "+str(l)[1:-1],'red')) 
         else:
             presenters[k] = []
 
@@ -98,7 +99,9 @@ def make_selection():
         diff = count_max - count_min
         while (len(presenters[contribution[:-1]])<2) and (offset<=diff):
             mi = count_min+offset
+            # you want to exclude volunteers and selected people next_thursday
             pool = list(set(members.query(contribution + ' == @mi').index) - set(presenters['paper']) - set(presenters['plot']) - set(selected_presenters[next_thursday][contribution[:-1]].split(', ')))
+            # SELECTION!!!
             presenters[contribution[:-1]] += random.sample(pool, min(len(pool),2-len(presenters[contribution[:-1]])))
             offset +=1
 
@@ -106,14 +109,17 @@ def make_selection():
     selected_presenters[next2_thursday] = dict(paper = "", plot = "")
     for contribution in ('papers', 'plots'): 
         selected_presenters[next2_thursday][contribution[:-1]] = ', '.join(presenters[contribution[:-1]])
-    print(presenters)
 
+    # save the updated selected_presenters file to selected_presenters_tba.yaml
+    # it will be mv-ed to selected_presenters.yaml, which will be mv-ed to selected_presenters.yaml.bak in the same time
     with open("selected_presenters_tba.yaml", "w") as fd:  
         yaml.safe_dump(selected_presenters, fd)            
 
+    # show me the result
     print(colored('Next week (%s):\npapers:\t%s\nplots:\t%s\n'%(next_thursday,selected_presenters[next_thursday]['paper'], selected_presenters[next_thursday]['plot']),'red'))
     print(colored('2 weeks later (%s):\npapers:\t%s\nplots:\t%s\n'%(next2_thursday,selected_presenters[next2_thursday]['paper'], selected_presenters[next2_thursday]['plot']),'red'))
 
+    # write emails
     f = open('email.bash','w')
     for contribution in ('paper', 'plot'):
         for name in selected_presenters[next_thursday][contribution].split(', '):
