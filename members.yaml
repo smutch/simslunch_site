@@ -1,7 +1,21 @@
-Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 3, plots: 3, type: postdoc}
-Hank: {available: 1, email: hansikk@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
-Katie: {available: 1, email: kmack@unimelb.edu.au, papers: 2, plots: 2, type: postdoc}
-Laura: {available: 1, email: lwolz@unimelb.edu.au, papers: 3, plots: 4, type: postdoc}
-Paul: {available: 1, email: geil.p@unimelb.edu.au, papers: 3, plots: 3, type: postdoc}
-Simon: {available: 1, email: smutch@unimelb.edu.au, papers: 3, plots: 1, type: postdoc}
-Yuxiang: {available: 1, email: yuxiangq@student.unimelb.edu.au, papers: 4, plots: 5, type: student}
+Edoardo: {available: 1, email: edoardo.tescari@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Hank: {available: 1, email: hansikk@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Katie Mack: {available: 1, email: kmack@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Laura: {available: 1, email: lwolz@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Paul: {available: 1, email: geil.p@unimelb.edu.au, papers: 0, plots: 0 , type: postdoc}
+Simon: {available: 1, email: smutch@unimelb.edu.au, papers: 1, plots: 0, type: postdoc}
+Yuxiang: {available: 1, email: yuxiangq@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Alex: {available: 1, email: alexc@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Benedetta: {available: 1, email: benedetta.vulcani@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Cameron: {available: 1, email: cmvdv@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+James: {available: 1, email: daviesje@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Daniela: {available: 1, email: dcarrasco@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Keven: {available: 1, email: kevenr@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Madeline: {available: 1, email: m.marshall1@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Michele: {available: 1, email: michele.trenti@unimelb.edu.au, papers: 0, plots: 0, type: faculty}
+Ricardo: {available: 1, email: r.d'amico@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
+Rob: {available: 1, email: robert.mearns@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Ruggero: {available: 1, email: ruggerod@student.unimelb.edu.au, papers: 1, plots: 0, type: student}
+Stephi: {available: 1, email: sbernard@student.unimelb.edu.au, papers: 1, plots: 0, type: student}
+Stuart: {available: 1, email: swyithe@unimelb.edu.au, papers: 0, plots: 0, type: faculty}
+Yisheng: {available: 1, email: yishengq@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
