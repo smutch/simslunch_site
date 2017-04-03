@@ -14,7 +14,7 @@ Keven: {available: 1, email: kevenr@student.unimelb.edu.au, papers: 0, plots: 0,
 Madeline: {available: 1, email: m.marshall1@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
 Michele: {available: 1, email: michele.trenti@unimelb.edu.au, papers: 0, plots: 0, type: faculty}
 Ricardo: {available: 1, email: r.d'amico@student.unimelb.edu.au, papers: 0, plots: 0, type: student}
-Rob: {available: 1, email: robert.mearns@unimelb.edu.au, papers: 0, plots: 0, type: postdoc}
+Rob: {available: 1, email: robert.mearns@unimelb.edu.au, papers: 1, plots: 0, type: postdoc}
 Ruggero: {available: 1, email: ruggerod@student.unimelb.edu.au, papers: 1, plots: 0, type: student}
 Stephi: {available: 1, email: sbernard@student.unimelb.edu.au, papers: 1, plots: 0, type: student}
 Stuart: {available: 1, email: swyithe@unimelb.edu.au, papers: 0, plots: 0, type: faculty}
